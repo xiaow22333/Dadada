@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="./firstweb.css" /> -->
+    <title>咕咕猫网址导航</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+    }
+
+    #he-plugin-simple {
+        width: 165px;
+        height: auto;
+        float: left;
+    }
+
+    #bgi {
+        background: no-repeat center;
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+    }
+
+    #logo {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+    }
+
+    body {
+        width: 100%;
+        max-width: 1000%;
+        height: 100%;
+        max-height: 1000%;
+        overflow: hidden;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        width: 100%;
+        max-width: 1000%;
+        height: 100%;
+        max-height: 1000%;
+        overflow: hidden;
+        position: fixed;
+    }
+
+    .pic2 {
+        width: auto;
+        max-width: 35px;
+        height: auto;
+        max-height: 35px;
+    }
+
+    .center {
+        width: 88%;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+        top: 15%;
+        left: 6%;
+    }
+
+    .center::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-position: center top;
+        background-size: cover;
+        background-attachment: fixed;
+        background-color: rgba(255, 255, 255, 0.45);
+        filter: blur(1px);
+        z-index: -2;
+        border-radius: 10px;
+    }
+
+    .dbig {
+        width: auto;
+        height: auto;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        flex: 1;
+        position: relative;
+        z-index: 1;
+    }
+
+    .dbig::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        background-position: center top;
+        background-size: cover;
+        background-attachment: fixed;
+        background-color: rgba(255, 255, 255, 0.6);
+        filter: blur(1px);
+        z-index: -1;
+        border-radius: 20px;
+    }
+
+    .t1 {
+        box-sizing: border-box;
+        float: left;
+        padding: 0 25px 0 25px;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, .4);
+        margin: 20px auto -10px auto;
+        border-radius: 20px;
+        outline: none;
+        border: none;
+        font-family: inherit;
+        -webkit-user-select: auto;
+        color: var(--d-main);
+        background-color: inherit;
+        height: auto;
+        width: auto;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .other {
+        background-position: center top;
+        width: auto;
+        z-index: 1;
+        flex: 3;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0 0 0;
+    }
+
+    .other_txt {
+        display: flex;
+        width: auto;
+        height: auto;
+        justify-content: space-between;
+        flex: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #txt_h4 {
+        margin: auto auto 5px 20px;
+        flex: 1;
+    }
+
+    #txt_time {
+        width: 100%;
+        height: auto;
+        margin: auto 20px 5px auto;
+        flex: 1;
+        text-align: right;
+    }
+
+    .other section {
+        display: flex;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin: 10px 25px;
+    }
+
+    .other section ul {
+        width: auto;
+        height: 100%;
+        display: flex;
+        flex: 1;
+    }
+
+    .other section ul li {
+        flex: 1;
+        margin: auto;
+        text-align: center;
+        animation-name: fade;
+        animation-duration: 1.25s;
+    }
+
+    @-webkit-keyframes fade {
+        from {
+            opacity: 0.0
+        }
+
+        to {
+            opacity: 1.0
+        }
+    }
+
+    @keyframes fade {
+        from {
+            opacity: 0.0
+        }
+
+        to {
+            opacity: 1.0
+        }
+    }
+
+    .somesearch {
+        height: 100%;
+        width: 100%;
+    }
+
+    .other section ul li a {
+        display: flex;
+        text-decoration: none;
+    }
+
+    .other section ul li a h4 {
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        margin: auto 10px;
+    }
+
+    div section ul li a h4:link {
+        color: black;
+        text-decoration: none;
+    }
+
+    div section ul li a h4:visited {
+        color: black;
+        text-decoration: none;
+    }
+
+    div section ul li a h4:active {
+        color: black;
+        text-decoration: none;
+    }
+
+    div section ul li a h4:hover {
+        color: orange;
+        transition: all 1s;
+        text-decoration: none;
+    }
+
+    /* 下半部分 */
+    .other2 {
+        position: relative;
+        background-position: center top;
+        z-index: 1;
+        top: 18.5%;
+        left: 6%;
+        width: 88%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .other2::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-position: center top;
+        background-size: cover;
+        background-attachment: fixed;
+        background-color: rgba(255, 255, 255, 0.5);
+        filter: blur(1.25px);
+        z-index: -1;
+        border-radius: 10px;
+    }
+
+    .list {
+        width: 100%;
+        margin: 0 auto;
+        font-size: large;
+    }
+
+    .list nav {
+        width: 100%;
+        height: 46%;
+        line-height: 40px;
+        display: flex;
+    }
+
+    .list nav a {
+        width: 100%;
+        height: auto;
+        flex: 1;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 7px;
+        color: black;
+        position: relative;
+        z-index: 2;
+        box-sizing: border-box;
+        border: 0.2px ridge ghostwhite;
+        box-shadow: inset 8px 8px 16px #bbbbbb,
+            inset -8px -8px 16px #d3d3d3;
+    }
+
+    .list nav a:hover {
+        box-sizing: border-box;
+        transition: all 0.8s;
+    }
+
+    .list nav a.active::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f3);
+        background-size: 400%;
+        border-radius: 7px;
+        filter: blur(1px);
+        z-index: -1;
+    }
+
+    .list nav a.active::before {
+        animation: sun 12s infinite;
+    }
+
+    @keyframes sun {
+        100% {
+            background-position: -400% 0;
+        }
+    }
+
+    @keyframes move {
+        0% {
+            background-position: 0%;
+        }
+
+        100% {
+            background-position: 100%;
+        }
+    }
+
+    .list nav a.active {
+        color: white;
+        animation: sun 12s infinite;
+    }
+
+    section {
+        display: none;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        margin: 10px auto;
+    }
+
+    section ul {
+        width: auto;
+        height: 100%;
+        display: flex;
+    }
+
+    section ul li {
+        flex: 1;
+        text-align: center;
+        margin: auto;
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.25s;
+        animation-name: fade;
+        animation-duration: 1.25s;
+    }
+
+    @-webkit-keyframes fade {
+        from {
+            opacity: 0.0
+        }
+
+        to {
+            opacity: 1.0
+        }
+    }
+
+    @keyframes fade {
+        from {
+            opacity: 0.0
+        }
+
+        to {
+            opacity: 1.0
+        }
+    }
+
+    section ul li a:link {
+        color: black;
+        text-decoration: none;
+    }
+
+    section ul li a:visited {
+        color: black;
+        text-decoration: none;
+    }
+
+    section ul li a:active {
+        color: black;
+        text-decoration: none;
+    }
+
+    section ul li a:hover {
+        color: orange;
+        transition: all 1s;
+        text-decoration: none;
+    }
+
+    section ul li a h4 {
+        color: black;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .list section ul li img {
+        max-width: 40px;
+        max-height: 40px;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .foot {
+        display: flex;
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        color: gray;
+        padding: 0px 0px 0px 0px;
+        margin: 0;
+    }
+</style>
+
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <!-- 正常背景图 -->
+        <img id="bgi" class="hidden-xs" importance="high"
+            src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/background.png?sign=3fe5e29b6e5f9a2a5143ea7ea21e37d2&t=1652350481" />
+        <!-- 小屏幕背景图 -->
+        <img id="bgi" class="visible-xs" importance="auto"
+            src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/background2.png?sign=abff0a8bf4bab4216de42b9397a38c06&t=1655463781" />
+        <!--天气插件 -->
+        <div id="he-plugin-simple"></div>
+        <script cl>
+            WIDGET = {
+                "CONFIG": {
+                    "modules": "01234",
+                    "background": "5",
+                    "tmpColor": "FFFFFF",
+                    "tmpSize": "16",
+                    "cityColor": "FFFFFF",
+                    "citySize": "16",
+                    "aqiColor": "FFFFFF",
+                    "aqiSize": "16",
+                    "weatherIconSize": "24",
+                    "alertIconSize": "18",
+                    "padding": "0px 0px 0px 0px",
+                    "shadow": "0",
+                    "language": "zh",
+                    "borderRadius": "10",
+                    "fixed": "true",
+                    "vertical": "top",
+                    "horizontal": "left",
+                    "left": "3",
+                    "top": "5",
+                    "key": "ae48e347a849469c942d89b61f80a41d"
+                }
+            }
+        </script>
+        <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+
+    </header>
+    <!-- 中央区域 -->
+    <!-- 多功能搜索 -->
+    <div class="center">
+        <div class="dbig">
+            <input class="t1" id="t1" maxlength="256" placeholder="输入内容后，选择下方引擎" type="text" autocomplete="off"
+                onkeydown="global1(event)">
+        </div>
+        <!-- 引擎列表 -->
+        <div class="other">
+            <div class="other_txt">
+                <h5 id="txt_h4">搜索引擎:</h5>
+                <time id="txt_time" class="hidden-xs"></time>
+            </div>
+            <section>
+                <ul>
+                    <li>
+                        <!-- 百度搜索 -->
+                        <a class="somesearch" id="baidu" target="_blank"
+                            onclick="window.open('https://www.baidu.com/s?wd='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/baidu.png?sign=c57f60de1fb5fe414a5e729f996dbf25&t=1658257107" />
+                            <h4 class="hidden-xs">百度搜索</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 谷歌搜索 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://www.google.com/search?q='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/google.png?sign=193548b0ca94d23313a5bc190631d0f4&t=1658257156" />
+                            <h4 class="hidden-xs">Google搜索</h4>
+                        </a>
+                    </li>
+                    <li class="hidden-xs">
+                        <!-- 360搜索 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://www.so.com/s?q='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/360%E6%90%9C%E7%B4%A2.png?sign=8433adcda57da42aed47d3f488850b2a&t=1649315801" />
+                            <h4 class="hidden-xs">360搜索</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 搜狗搜索 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://www.sogou.com/web?query='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/sougou.png?sign=4ac72b161412846f8c57b7acc434fd86&t=1652342282"
+                                width="80px" height="80px" />
+                            <h4 class="hidden-xs">搜狗搜索</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 必应搜索 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://cn.bing.com/search?q='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/bing.png?sign=d4a2c2e587eeca8d9c0628070bb42163&t=1649309987" />
+                            <h4 class="hidden-xs">必应Bing</h4>
+                        </a>
+                    </li>
+                    <li class="hidden-xs">
+                        <!-- 中国知网 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://kns.cnki.net/KNS8/DefaultResult/Index?dbcode=SCDB&kw='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E4%B8%AD%E5%9B%BD%E7%9F%A5%E7%BD%91.png?sign=05ce015eee8b9b1668acc3ca71fe7d4d&t=1649310253" />
+                            <h4 class="hidden-xs">中国知网</h4>
+                        </a>
+                    </li>
+                    <li class="hidden-xs">
+                        <!-- 哔哩哔哩 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://search.bilibili.com/all?keyword='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/B%E7%AB%99.png?sign=bf69c51ee4273515ec59d8ff596df37d&t=1649350551" />
+                            <h4 class="hidden-xs">B站搜索</h4>
+                        </a>
+                    </li>
+                    <li class="visible-lg">
+                        <!-- 微信搜索 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://weixin.sogou.com/weixin?type=2&s_from=input&query='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/wechat.png?sign=5d8d3d492bc388544fcae8fb1ffd2e70&t=1649314765" />
+                            <h4 class="hidden-xs">微信搜索</h4>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- 第二行 -->
+            <section>
+                <ul>
+                    <li>
+                        <!-- 微博 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://s.weibo.com/weibo?q='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/weibo.png?sign=eb41087ca824c4a226bc99c7b135ed24&t=1649315501" />
+                            <h4 class="hidden-xs">微博搜索</h4>
+                        </a>
+                    </li>
+                    <li class="hidden-xs">
+                        <!-- 头条搜索 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://so.toutiao.com/search?wid_ct=1658258608875&dvpf=pc&source=input&keyword='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1.png?sign=4685267db53128e55641e3a0a40e30f0&t=1649351079" />
+                            <h4 class="hidden-xs">头条搜索</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 知乎 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://www.zhihu.com/search?type=content&q='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%9F%A5%E4%B9%8E.png?sign=755da3776c29cc995361bae94e2066bb&t=1649782486" />
+                            <h4 class="hidden-xs">知乎搜索</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- Github -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://github.com/search?q='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/github.png?sign=67e87414e4eff7a85df76d8d4bd9b21b&t=1649782710" />
+                            <h4 class="hidden-xs">Github</h4>
+                        </a>
+                    </li>
+                    <li class="hidden-xs">
+                        <!-- MDN-->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://developer.mozilla.org/zh-CN/search?q='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/medium-m.png?sign=3a91837a86f78a7b48b8c7626e8d6680&t=1658257740" />
+                            <h4 class="hidden-xs">MDN搜索</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 淘宝 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://s.taobao.com/search?q='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%B7%98%E5%AE%9D.png?sign=3a1adbc8cdb972af1f1ffa712e24ff35&t=1649782919" />
+                            <h4 class="hidden-xs">淘宝搜索</h4>
+                        </a>
+                    </li>
+                    <li class="visible-lg">
+                        <!-- 天猫 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://list.tmall.com/search_product.htm?q='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E5%A4%A9%E7%8C%AB-01.png?sign=f0f7a2a0eaf39ad85a5ab0ad2d3ffab7&t=1649783206" />
+                            <h4 class="hidden-xs">天猫搜索</h4>
+                        </a>
+                    </li>
+                    <li class="hidden-xs">
+                        <!-- 京东 -->
+                        <a class="somesearch" target="_blank"
+                            onclick="window.open('https://search.jd.com/Search?keyword='+document.getElementById('t1').value)">
+                            <img class="pic2"
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/jd.png?sign=e5eb3af2aa615e0d4df1de409516aefa&t=1649783373" />
+                            <h4 class="hidden-xs">京东搜索</h4>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <!-- 常用网站 -->
+    <div class="other2">
+        <div class="list">
+            <nav>
+                <a data-cont="aa">常用</a>
+                <a data-cont="ab">学习</a>
+                <a data-cont="ac">新闻</a>
+                <a data-cont="ad">影音</a>
+                <a data-cont="ae">购物</a>
+                <a data-cont="af">便民</a>
+            </nav>
+            <!-- 网站列表 -->
+
+
+            <section id="aa">
+                <ul>
+                    <li>
+                        <a href="https://www.zhihu.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%9F%A5%E4%B9%8E.png?sign=63f90e199867056cea027fee1c3d5e22&t=1651721587" />
+                            <h4>知乎</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://fanyi.baidu.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91.png?sign=ac35006d272bc6c7408143b38edb958d&t=1651721555" />
+                            <h4>百度翻译</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://translate.google.cn/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/google%E7%BF%BB%E8%AF%91.png?sign=323840668d0e774741699aed1d259ec6&t=1651742868" />
+                            <h4>Google翻译</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://music.163.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90.png?sign=bc5f3d007dd577d2a5d8cb35f183ce59&t=1651721650" />
+                            <h4>网易云音乐</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.douyin.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%8A%96%E9%9F%B3.png?sign=05a9eb6d4c830c5bb46a352cd1494a9b&t=1651721707" />
+                            <h4>抖音</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.ctrip.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%90%BA%E7%A8%8B.png?sign=36c24c025951a0dedea48d8f5a07a235&t=1651723454" />
+                            <h4>携程旅行</h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="https://www.bilibili.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/B%E7%AB%99.png?sign=7701474e963aa37e4da91af0a63ce6ea&t=1650003070" />
+                            <h4>哔哩哔哩动画</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.iqiyi.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%88%B1%E5%A5%87%E8%89%BA.png?sign=e2f27e1b1724474add6849ab917f09ad&t=1651722049" />
+                            <h4>爱奇艺</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.huya.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E8%99%8E%E7%89%99%E7%9B%B4%E6%92%AD.png?sign=1a474e573de3cc6f97dff48fac38769d&t=1651737235" />
+                            <h4>虎牙</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.douyu.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%96%97%E9%B1%BC.png?sign=db00b20fd4c1965029fc55b81d5c9533&t=1651737228" />
+                            <h4>斗鱼</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://youhui.pinduoduo.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%8B%BC%E5%A4%9A%E5%A4%9A.png?sign=ce3e4e4d2cb12ed039d6e7794622ef09&t=1651769976" />
+                            <h4>拼多多</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.vip.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E5%94%AF%E5%93%81%E4%BC%9A.png?sign=69b297a2890781d114a52ba2b47ca9d2&t=1651769960" />
+                            <h4>唯品会</h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="https://mail.qq.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/QQ%E9%82%AE%E7%AE%B1.png?sign=9f3a6103b32ca39f22c12f25b24cb0e1&t=1651722387" />
+                            <h4>QQ邮箱</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://mail.163.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/163%E9%82%AE%E7%AE%B1.png?sign=0f37914f1523df9d60ad3eb5001042d4&t=1651770585" />
+                            <h4>网易163邮箱</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.ifeng.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E5%87%A4%E5%87%B0%E7%BD%91.png?sign=c7efa1243edf146f94116f1601703d01&t=1651723306" />
+                            <h4>凤凰网</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.sina.com.cn/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/weibo.png?sign=93504c6af35996b8831cd53910dee106&t=1651721724" />
+                            <h4>新浪</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tieba.baidu.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E8%B4%B4%E5%90%A7.png?sign=bc4fdc83b807f972161d6025f56d7914&t=1651722059" />
+                            <h4>百度贴吧</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bbs.mihoyo.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/mihoyobbs5.png?sign=1894fe89ee4bf10d8bf834701b6b110a&t=1651770603" />
+                            <h4>米游社</h4>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="ab">
+                <ul>
+                    <li>
+                        <a href="https://dict.youdao.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%9C%89%E9%81%93%E8%AF%8D%E5%85%B8.png?sign=5ce07812fc8468e4c9c2c451120509ee&t=1652861657" />
+                            <h4>有道词典</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://kns.cnki.net/kns8" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E4%B8%AD%E5%9B%BD%E7%9F%A5%E7%BD%91.png?sign=c84736d9ef6d181c1ac0153b22d5bcbe&t=1652861704" />
+                            <h4>中国知网</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.icourse163.org/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6MOOC.png?sign=aa99a014601e4f9fd55f368f88740834&t=1652861808" />
+                            <h4>中国大学MOOC</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://passport2.chaoxing.com/login?fid=&newversion=true&refer=http%3A%2F%2Fi.chaoxing.com"
+                            target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E9%97%A8%E6%88%B7%E5%B8%B8%E7%94%A8%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9FICON%EF%BC%88%E5%9C%86%E7%9A%84%EF%BC%89_%E8%B6%85%E6%98%9F%E6%95%99%E5%AD%A6%E5%B9%B3%E5%8F%B0%20(1).png?sign=eed2c510148fe70fcf54285080058951&t=1652861985" />
+                            <h4>超星学习通</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://ke.qq.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82.png?sign=a79255a63a5c3ba77362da99938a9a85&t=1652862332" />
+                            <h4>腾讯课堂</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://study.163.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%BD%91%E6%98%93%E4%BA%91%E8%AF%BE%E5%A0%82.png?sign=2a148a5f2d7d6994d9f3d4118eadeab9&t=1652862322" />
+                            <h4>网易云课堂</h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="https://open.163.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E5%85%AC%E5%BC%80%E8%AF%BE%20%E5%BC%80%E6%94%BE%E8%AF%BE.png?sign=73aedab17119d756d4d74869b6b1f66f&t=1652862637" />
+                            <h4>网易公开课</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wenku.baidu.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%99%BE%E5%BA%A6%E6%96%87%E5%BA%93.png?sign=272905b032d60d65825ece17d994c8ed&t=1652862725" />
+                            <h4>百度文库</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zhihu.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%9F%A5%E4%B9%8E.png?sign=63f90e199867056cea027fee1c3d5e22&t=1651721587" />
+                            <h4>知乎</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.csdn.net/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/csdn.png?sign=6e76dbfd2dcd9889ce8e138d211f19d1&t=1653475434" />
+                            <h4>CSDN</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91.png?sign=f4c0e3907c8e40ece16573c70151e4a2&t=1653475508" />
+                            <h4>维基百科</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.w3school.com.cn/index.html" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/w3school%20%E5%9C%A8%E7%BA%BF%E6%95%99%E7%A8%8B.png?sign=dabd5f57d92a241ce9104277a7dd665f&t=1653475864" />
+                            <h4>W3school</h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="https://mubu.com/home" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E5%B9%95%E5%B8%83.png?sign=a55dbc760b484ff624141396dd1c1a17&t=1653475629" />
+                            <h4>幕布</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.liuchengtu.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.png?sign=0b46b6eaf0043e5ee80d6e6f0d104cf4&t=1653476698" />
+                            <h4>流程图</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zdic.net/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%B1%89%E5%85%B8.png?sign=b99c9dd76fbdb1c91f64d3d41087120f&t=1653476823" />
+                            <h4>汉典</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.chsi.com.cn/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E5%AD%A6%E4%BF%A1%E7%BD%91.png?sign=4531f1cbcb835b22a10cbdeab763b7f5&t=1653477408" />
+                            <h4>学信网</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hujiang.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%B2%AA%E6%B1%9F.png?sign=ce4165a512335984934be4a890d7c4c2&t=1654159628" />
+                            <h4>沪江网校</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://meiriyiwen.com/" target="_blank">
+                            <img
+                                src="https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E6%96%87%E7%AB%A0.png?sign=e816271e2b3103dd3ed329701ecf82ac&t=1654159635" />
+                            <h4>每日一文</h4>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="ac">
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="ad">
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="ae">
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="af">
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="" />
+                            <h4></h4>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <!-- 底部区域 -->
+    <footer>
+        <div class="foot ">
+            <a href="https://space.bilibili.com/178455239" target="_blank"
+                style="flex: 1;color: gray;margin-right: 10px;">作者B站</a>
+            <p style="flex: 1;margin-left: 10px;">QQ:1781160263</p>
+        </div>
+    </footer>
+</body>
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.37/vue.global.js"></script> -->
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+    </script>
+<script>
+    //Vue数组
+    const weblist = {
+        data() {
+            return {
+                list1: [{
+                    href: 'https://www.zhihu.com/',
+                    src: 'https://6130-a0531-1ggasqdtb4568414-1306043931.tcb.qcloud.la/html/%E7%9F%A5%E4%B9%8E.png?sign=63f90e199867056cea027fee1c3d5e22&t=1651721587',
+                    ct: '知乎'
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                ],
+                list2: [{
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                ],
+                list3: [{
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                {
+                    href: '',
+                    src: '',
+                    ct: ''
+                },
+                ],
+            }
+        }
+    }
+    Vue.createApp(weblist).mount('#na1');
+
+    //取消回车换行，回车搜索
+    var s1 = document.getElementById("baidu");
+    var t1 = document.getElementById("t1");
+
+    function global1(e) {
+        var et = e || window.event;
+        var keycode = et.charCode || et.keyCode;
+        if (keycode == 13) {
+            if (window.event) {
+                window.event.returnValue = false;
+            } else {
+                e.preventDefault();
+            }
+        }
+    };
+    t1.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            s1.click();
+        }
+    });
+
+    //tabs切换
+    function choose(index) {
+        var navs = document.querySelectorAll('nav a');
+        for (var i = 0; i < navs.length; i++) {
+            if (i == index) {
+                navs[i].classList.add("active");
+                var firstId = navs[i].dataset['cont'];
+                document.querySelector('#' + firstId).style.display = "block";
+            }
+            navs[i].onmousemove = function () {
+                var currNav = document.querySelector('a.active');
+                currNav.classList.remove("active");
+                var currId = currNav.dataset['cont'];
+                document.querySelector('#' + currId).style.display = "none";
+                this.classList.add('active');
+                var myId = this.dataset['cont'];
+                document.querySelector('#' + myId).style.display = "block";
+            }
+        }
+    }
+    choose(0);
+
+    // 时间日期显示
+    function time() {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var week = date.getDay();
+        week = "星期" + "日一二三四五六".charAt(week);
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+        var temp = [month, day, hour, minute, second];
+        for (var i in temp) {
+            temp[i] = temp[i] < 10 ? "0" + temp[i] : temp[i];
+        }
+        var currentTime = year + "-" + temp[0] + "-" + temp[1] + " " + temp[2] + ":" + temp[3] + ":" + temp[4] + " " +
+            week;
+        document.getElementById("txt_time").innerHTML = currentTime;
+    }
+    setInterval("time()", 1000);
+</script>
+
+</html>
